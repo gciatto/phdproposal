@@ -1,0 +1,10 @@
+# Roba che ho scritto ma che non so dove mettere
+Già oggi, la presenza sempre più pervasiva tra i nostri oggetti di uso comune di dispositivi aventi capacità computazionali non-banali, come gli *smartphone*, i dispositivi indossabili e, più in generale, l'ecosistema di sensori e attuatori tipici degli scenari IoT, e la loro integrazione sempre più fitta con le nostre attività quotidiane, hanno il duplice effetto di:
+- abilitare e avvicinare visioni come quella degli ambienti intelligenti o, più ancora, delle *smart cities*,
+- porre nuove sfide scientifice, ingegneristiche e tecnologiche reguardanti la *coordinazione* di una quantità in continua crescita di dispositivi interagenti tramite la rete nelle maniere più disparate e dell'ancor più imponente mole di dati che questi si scambiano nell'attuare tale interazione.
+
+Questo secondo punto, in particolare, sintetizza e delinea la macro-area dei miei interessi di ricerca.
+Se, da un lato, molta energia nel mondo accademico così come in quello industiale è attualmente volta a capire come estrarre informazione utile dall'enorme massa di dati "grezzi" che ogni giorno iniettiamo sulla rete (dato che, spesso, è prorprio questa informazione ad avere valore agli occhi dei fruitori degli odierni sistemi software), altrettanto interessante risulta lo studio di quelle architetture, esistenti o venture, che permettano a sistemi tanto articolarti di gestire il continuo aumento di utenti e dati senza che ciò comporti una periodica re-ingegnerizzazione dell'architettura stessa dell'intero sistema.
+La caratteristica tipica di sistemi siffatti è chiamata *scalabilità*.
+
+Stando alla mia conoscenza attuale, la scalabilità è oggi un problema sentito particolamente negli ambito del *Cloud Computing*, in particolare nei modelli di servizio PaaS e Saas, in cui il *focus* è sulla ripartizione del carico di lavoro affidato al fornitore di servizi *cloud*, che può essere verticale (ad esempio, l'allocazione più o meno automatica di risorse computazioni a un'attività) od orizzontale (ad esempio, la replicazione di uno o più moduli software affinché le repliche collaborino concorrentemente).
