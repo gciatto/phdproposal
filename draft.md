@@ -29,16 +29,6 @@ Anche in questo caso, si presuppongono opportune astrazioni concettuali e lingua
     Rientrano in questa categoria quegli applicativi che guidano i progettisti nella stesura dei modelli formali, o ne permettono un'analisi statica di correttezza formale e validità (e.g. *type checker* e *model-checker*), o un'analisi dinamica (e.g. simulatori, *model-checker* stocastici e *debugger*).
     * l'impiego, quanto più ampio possibile, di _protocolli e tecnologie standard_ e di larga diffusione, per tutto ciò che concerne l'implementazione e la manutenzione, al fine di permettere apertura ed interoperabilità --- due proprietà non-funzionali vitali per i sistemi distribuiti moderni --- e di abilitare la creazione di infrastrutture in grado di confrontarsi con le controparti industruali.
 
-
-
-
-    <!--TODO commenti sulla non ortogonalità di questi aspetti-->
-
-    <!--TODO chiave di lettura principale: l'interazione, la coordinazione e la concorrenza. 
-    Nel momento in cui si parla di distribuzioe e decentralizzazione, la concorrenza è assunta implicitamente, come pure l'interazione. 
-    Dove c'è interazione nasce l'esigenza di coordinazione.-->
-
-
 Queste caratteristiche non sono affatto ortogonali tra loro. 
 Decentralizzazione, auto-organizzazione e scalabilità sono, infatti, fortemente interrelate.
 Ipotizzando un sistema in grado di funzionare --- o magari auto-organizzarsi --- in maniera completamente decentralizzata, è lecito aspettarsi che l'aggiungersi di nuovi partecipanti al sistema vada ad impattare positivamente la potenza di calcolo del sistema distribuito anziché essere considerata una richiesta di allocazione di risorse cui far fronte.
@@ -49,32 +39,30 @@ Questa, a sua volta, abilita un maggiore grado di __parallelizzazione__, tende a
 La semplicità di modellazione, progettazione,  implementazione e validazione, infine, chiude il cerchio garantendo che sistemi di questa specie possano essere costruiti e controllati.
 Quest'ultimo punto, in particolare, sintetizza e delinea la macro-area dei miei interessi di ricerca: individuare gli strumenti concettuali, formali e teconologici in grado di catturare *efficacemente* le caratteristiche definite in questa sezione e di impattare nel mondo reale arrivando a confrontarsi con le architetture distribuite moderne, possibilmente integrando quest'ultime e le molteplici proposte di modelli di coordinazione *general-purpose* scaturite da più di due decadi di ricerca in quest'ambito.
 
-<!--Risulta evidente come il *focus* non sia sulla maniera con cui i vari partecipanti ai sistemi distribuiti computino, né sull'oggetto della loro computazione, bensì sui possibili modi in cui questi interagiscono e riescono, per mezzo della loro interazione, a funzionare in maniera __coordinata__.-->
-<!--Sono molti, in letteratura i modelli proposti per tentare di catturare le caratteristiche definite in questa sezione che tuttavia falliscono -->
-
 ## Stato dell'arte
 
-<!--TODO Principali modelli di coordinazione:
-    - Scambio di messaggi
-    - Event-driven architectures
-    - Linda: comunicazione generativa + semantica bloccante
-    - Tucson/Respect:  comunicazione generativa + semantica bloccante + programmabilità del medium
-    - Mok: com. gen. -> metafora biochimica
-    -  -->
-
-<!--Adottando la nomenclatura di Ciancarini [cit.] -->
-Un sistema atto a governare le interazioni possibili tra i partecipanti (o __coordinabili__) al sistema distribuito è detto __medium di coordinazione__.
+Un sistema atto a governare le interazioni possibili tra i partecipanti (o __coordinabili__) al sistema distribuito è detto __medium di coordinazione__ [cit.].
 Esso impiegherà un particolare __modello/linguaggio di coordinazione__ per permettere ai progettisti di specificare le regole con le quali i coordinabili potranno interagire.
 
-Negli anni, sono stati proposti diversi modelli di coordinazione che hanno avuto un forte impatto nel mondo informatico, a partire dai classici __middleware a scambio di messaggi__, in cui il *medium* ha la "sola" responsabilità di propagare i messaggi sulla rete, fino alle più evolute architetture __event-driven__, in cui ad essere propagata è la notifica degli eventi ed il *medium* offre la possibilità di ragionare sulla co-occorrenza di eventi e su eventuali pattern ricorrenti di sequenze di eventi.
+Negli anni, sono stati proposti diversi modelli di coordinazione che hanno avuto un forte impatto nel mondo informatico, a partire dai classici __middleware a scambio di messaggi__ [cit.?], in cui il *medium* ha la responsabilità di propagare i messaggi sulla rete, fino alle più evolute architetture __event-driven__ [cit.?], in cui ad essere propagata è la notifica degli eventi ed il *medium* offre la possibilità di ragionare sulla co-occorrenza di eventi e su eventuali pattern ricorrenti di sequenze di eventi.
 
-In letteratura, una pietra miliare è rappresentata dall'introduzione di `Linda` [cit.] e, più in generale, della __comunicazione generativa__, in cui le *tuple*, cioé i quanti di informazione scambiati nell'interazione distribuita, godono di vita propria, indipendente dal coordinabile che li ha genereti.
-Tale modello è poi stato ripreso ed esteso da `TuCSoN` / `ReSpecT` [cit.] in cui le tuple sono termini della logica del prim'ordine e il medium diventa programmabile dinamicamente per mezzo di reazioni che permettono di intercettare l'invocazione delle primitive del modello stesso.
+<!--TO-DO: crtiticare i modelli citati rispetto alle caratteristiche dell'introduzione-->
 
-Nella sua tesi di dottorato, Mariani [cit.] introduce Mok, un modello di coordinazione che eredita la comunicazione generativa e la possibilità di specificare reazioni combinandole con la metafora biochimica tipica del modello `Gamma` [cit.], in cui i quanti di informazione vengono immaginati come molecole e la computazione si evolve mimando il funzionamento delle reazioni chimiche, cioè trasformando continuamente tuple-reagenti in tuple-prodotto.
-L'autore prende atto della maggiore espressività dei meccanismi stocastici rispetto al *don't care non-determinism* delle primitive `Linda`.
-L'impiego di approcci probabilistici che si ispirano alla biologia ed alla chimica è ormai consolidato in molti ambiti dell'informatica, specialmente laddove siano richieste __resilienza__ ed __auto-organizzazione__.
-<!--TODO citare ACO, la swam intelligence, etc. -->
+In letteratura, una pietra miliare è rappresentata dall'introduzione di `Linda` [cit.] e, più in generale, della __comunicazione generativa__, in cui ogni *tupla*, cioé il quanto di informazione scambiato nell'interazione distribuita, godone di vita propria, indipendente dal coordinabile che l'ha genereta.
+Tale modello è poi stato esteso da `TuCSoN` / `ReSpecT` [cit.] in cui le tuple sono termini della logica del prim'ordine e il *medium* diventa programmabile dinamicamente per mezzo di reazioni che permettono di intercettare l'invocazione delle primitive del modello stesso.
+
+Nella sua tesi di dottorato, Mariani [cit.] introduce `MoK`, un modello di coordinazione che eredita la comunicazione generativa e la possibilità di specificare reazioni combinandole con la metafora biochimica tipica del modello `Gamma` [cit.], in cui i quanti di informazione vengono immaginati come molecole e la computazione si evolve mimando il funzionamento delle reazioni chimiche, cioè trasformando continuamente tuple-reagenti in tuple-prodotto.
+L'autore prende atto della maggiore espressività dei meccanismi stocastici rispetto al *don't care non-determinism* delle primitive `Linda`: l'impiego di approcci probabilistici che si ispirano alla biologia ed alla chimica è ormai consolidato in molti ambiti dell'informatica, specialmente laddove siano richieste __resilienza__ ed __auto-organizzazione__ [giustificare o citare]. 
+Esempi di successo sono rappresentati da ambiti di ricerca come ACO [cit.] o SAPERE [cit.] o algoritmi meta-euristici di larga adozione come l'algoritmo genetico [cit.] o il *simulated-annealing* [cit.]
+
+Purtroppo, pur esistendo una pletora di modelli di coordinazione che sfruttino, in maniera più o meno espliciti, approcci stocastici, rimane modesto il supporto in termini di formalismi e metodologie capaci di rendere i sistemi così ottenuti effetivamente predicibili e controllabili, ed è questa a mio avviso una tra le principali ragioni per cui non si trovano approcci analoghi tra le tecnologie *maistream*. 
+
+<!--TO-DO introdurre approcci tecnologici con cui voglio confrontarmi:
+    - REST
+    - MOM
+    - EDA
+    - SOA    
+-->
 
 ## Il progetto di ricerca
 <!--TODO Analizzare modelli proposti in letteratura e architetture di successo nel "mondo reale", sondarne punti di forza e di debolezza rispetto alle caratteristiche dette sopra, analogie e differenze tra i vari elementi selezionati, punti d'incontro e punti di divergenza.-->
