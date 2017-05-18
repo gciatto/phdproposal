@@ -53,7 +53,7 @@ Tale modello è poi stato esteso da `TuCSoN` / `ReSpecT` [cit.] in cui le tuple 
 
 Nella sua tesi di dottorato, Mariani [cit.] introduce `MoK`, un modello di coordinazione che eredita la comunicazione generativa e la possibilità di specificare reazioni combinandole con la metafora biochimica tipica del modello `Gamma` [cit.], in cui i quanti di informazione vengono immaginati come molecole e la computazione si evolve mimando il funzionamento delle reazioni chimiche, cioè trasformando continuamente tuple-reagenti in tuple-prodotto.
 L'autore prende atto della maggiore espressività dei meccanismi stocastici rispetto al *don't care non-determinism* delle primitive `Linda`: l'impiego di approcci probabilistici che si ispirano alla biologia ed alla chimica è ormai consolidato in molti ambiti dell'informatica, specialmente laddove siano richieste __resilienza__ ed __auto-organizzazione__ [giustificare o citare]. 
-Esempi di successo sono rappresentati da ambiti di ricerca come ACO [cit.] o SAPERE [cit.] o algoritmi meta-euristici di larga adozione come l'algoritmo genetico [cit.] o il *simulated-annealing* [cit.]
+Esempi di successo sono rappresentati da ambiti di ricerca come ACO [cit.] o SAPERE [cit.] o algoritmi meta-euristici di larga adozione come l'algoritmo genetico [cit.] o il *simulated-annealing* [cit.].
 
 Purtroppo, pur esistendo una pletora di modelli di coordinazione che sfruttino, in maniera più o meno espliciti, approcci stocastici, rimane modesto il supporto in termini di formalismi e metodologie capaci di rendere i sistemi così ottenuti effetivamente predicibili e controllabili, ed è questa a mio avviso una tra le principali ragioni per cui non si trovano approcci analoghi tra le tecnologie *maistream*. 
 
